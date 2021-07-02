@@ -1,0 +1,25 @@
+baixar visual studio code
+baixar xampp
+baixar node
+
+criar bd sistema_mesada
+rodar arquivo db.js
+
+npm init -y (criar packpage)
+npm install express --save (criar node_modules e baixar express)
+npm install nodemon –g (baixar nodemon)
+NÃO VOU USAR SEQUELIZE, ORM   VOU PRECISAR PRA AUTENTICAÇÃO?
+npm install express-handlebars –-save (baixar handlebars)
+npm install body-parser --save (body-parser)
+NÃO USAR O MONGOOSE, BD
+npm install express-session --save(sessões)
+npm install connect-flash --save(sessões)
+npm install bcryptjs --save(criptografia)
+npm install passport --save (autenticação)
+npm install passport-local --save(autenticação)
+npm install -S mysql (mysql)
+
+
+npm install memory
+npm install crypto
+npm install moment --save

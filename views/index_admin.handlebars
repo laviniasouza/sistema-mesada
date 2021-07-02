@@ -1,0 +1,75 @@
+{{>_menulateral_admin}} 
+
+<div id="content-wrapper" class="d-flex flex-column">
+ 
+    <div id="content">
+
+        {{>_navbar_admin_inicio}}
+
+        {{>_msg}}
+
+        <div class="container-fluid">
+
+            <div class="card-header py-3">
+                <h4 class="m-0 font-weight-bold text-primary">Bem-Vindo!</h4>
+            </div>
+            
+            <div class="card shadow mb-2"></div>
+                <br>
+
+            <!-- Content Row -->
+            <div class="row">
+
+                <!-- Existem Novas Solicitações -->
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card border-left-primary shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    {{#each solicitacao}}
+                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Existem novas solicitações</div>
+                                    <br>
+                                    <a href="/solicitacoes_pai/admin">
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">Clique para ver</div>
+                                    </a>
+                                    {{else}}
+                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Não existem novas solicitações</div>
+                                    {{/each}}
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-exclamation fa-2x text-gray-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Total de Solicitações -->
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card border-left-success shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Total de solicitações</div>
+                                    <br>
+                                    {{#each historico}}
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">R$ {{valortotal}}</div>
+                                    {{/each}}
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>            
+        </div>
+    </div>
+
+    <!-- Rolagem para o topo-->
+    <a class="scroll-to-top rounded" href="#content-wrapper">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+</div>

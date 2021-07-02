@@ -1,0 +1,94 @@
+{{>_menulateral_dependente}}  
+
+<div id="content-wrapper" class="d-flex flex-column">
+    
+    <div id="content">
+
+        {{>_navbar_dependente}}
+        
+        {{>_msg}}
+
+        <div class="container-fluid">
+
+            {{#each solicitacoes}}
+
+            <input type="hidden" name="id" value="{{id}}">
+
+            <div class="card-header py-3">                
+                <h4 class="m-0 font-weight-bold text-primary">Seu pedido</h4>                
+            </div>
+            
+            <div class="card shadow mb-2"></div>
+                    
+                <br>
+            <label class="mb-2 text-gray-900 font-weight-bold">Dia que você pediu: </label>                
+            <label class="mb-2 text-gray-900 data date-{{id}}">
+                <script>
+                    document.querySelector('.date-{{id}}').innerHTML = new Date('{{data}}').toLocaleDateString()
+                </script>
+            </label>
+                <br><br>
+
+            <label class="mb-2 text-gray-900 font-weight-bold">Dia que você precisa:</label>                
+            <label class="mb-2 text-gray-900 data date2-{{id}}">
+                <script>
+                    document.querySelector('.date2-{{id}}').innerHTML = new Date('{{data_necessidade}}').toLocaleDateString()
+                </script>
+            </label>
+                <br><br>
+
+            <label class="mb-2 text-gray-900 font-weight-bold">Papai:</label>                
+            <label class="mb-2 text-gray-900">{{nome_pai}}</label>
+                <br><br>
+
+            <label class="mb-2 text-gray-900 font-weight-bold">De quanto dinheiro você precisa:</label>                
+            <label class="mb-2 text-gray-900 valor">
+                <script>
+                    document.querySelector('.valor').innerHTML = 'R$ ' + '{{valor}}'.toLocaleString('pt-BR', {style:'currency', currency:'BRL'})
+                </script>
+            </label>
+                <br><br>
+
+            <label class="mb-2 text-gray-900 font-weight-bold">Pra que você precisa:</label>                
+            <label class="mb-2 text-gray-900">{{descricao_conta}}</label>
+                <br><br>
+
+            <label class="m-0 font-weight-bold text-primary">O papai...</label>
+                <br>
+            <label class="m-0 font-weight-bold text-primary">{{situacao}}{{avaliacao}}</label>
+                <br><br>
+
+            <label class="m-0 font-weight-bold text-primary">{{justificativa}}</label>
+                <br>
+            <label class="m-0 font-weight-bold text-primary">{{observacao}}</label>
+                <br><br>
+
+            <a href="/solicitacoes_filho/editarsolicitacao/{{id}}" class="btn btn-success btn-icon-split">
+                <span class="text">Mudar alguma coisa nesse pedido</span>
+            </a>
+
+            <br><br>
+            
+            <form method="POST" onsubmit="return confirm('Deseja realmente apagar seu pedido?'); return false" action="/solicitacoes_filho/deletarsolicitacao">
+                <input type="hidden" name="id" value="{{id}}">
+                <button type="submit" class="btn btn-danger">Não fazer mais esse pedido</i></button>
+            </form>
+
+            {{/each}}
+        </div>
+    </div>
+    
+    <!-- Rolagem para o topo-->
+    <a class="scroll-to-top rounded" href="#content-wrapper">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+                <span>Copyright &copy; Your Website 2019</span>
+            </div>
+        </div>
+    </footer>
+
+</div>

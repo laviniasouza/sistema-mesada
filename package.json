@@ -1,0 +1,33 @@
+{
+  "name": "sistema_mesada",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "connect-flash": "^0.1.1",
+    "dateformat": "^3.0.3",
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
+    "express-session": "^1.16.2",
+    "jQuery": "^1.7.4",
+    "jquery-mask-plugin": "^1.14.16",
+    "moment": "^2.24.0",
+    "mysql": "^2.17.1",
+    "nodemon": "^1.19.1",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "sweetalert": "^2.1.2",
+    "sweetalert2": "^9.4.0"
+  }
+}

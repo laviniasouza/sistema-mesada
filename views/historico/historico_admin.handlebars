@@ -1,0 +1,88 @@
+{{>_menulateral_admin}}  
+
+<div id="content-wrapper" class="d-flex flex-column">
+    
+    <div id="content">
+
+        {{>_navbar_admin}}
+        
+        {{>_msg}}
+
+        <div class="container-fluid">
+
+            {{#each historico}}
+            
+            <div class="card-header py-3">
+                <h4 class="m-0 font-weight-bold text-primary">Histórico</h4>
+            </div>
+
+            <div class="card shadow mb-2"></div>
+                    
+                <br>
+            <label class="mb-2 text-gray-900 font-weight-bold">
+                Foram gastos um total de :
+            </label>
+                <br>
+            <div class="card-header py-3">
+                <h4 class="m-0 font-weight-bold text-primary">R$ {{valortotal}}</h4>
+            </div>
+                <br>
+            <label class="text-gray-900 font-weight-bold">
+                No período de :
+            </label>
+                <br>
+            <div class="card-header py-3">
+                <h5 class="m-0 font-weight-bold text-success data date-{{id}}">
+                    <script>
+                        document.querySelector('.date-{{id}}').innerHTML = new Date('{{data_inicial}}').toLocaleDateString() + " a " + new Date('{{data_final}}').toLocaleDateString()
+                    </script>
+                </h5>
+            </div>
+                <br>
+
+            {{/each}}
+            
+            <label class="mb-2 text-gray-900 font-weight-bold">
+                Filhos :
+            </label>
+                <br>
+
+            <div class="card-header py-3">
+            {{#each filho}}
+                <h5 class="m-0 font-weight-bold text-primary">{{nome_filho}} - R$ {{valor_filho}}</h5>
+                <br>
+            {{/each}}
+            </div>
+                <br>
+            
+            <label class="mb-2 text-gray-900 font-weight-bold">
+                Categorias :
+            </label>
+                <br>
+            
+            <div class="card-header py-3">
+            {{#each categoria}}
+                <h5 class="m-0 font-weight-bold text-primary">{{nome_categoria}} - R$ {{valor_categoria}}</h5>
+                <br>
+            {{/each}}
+            </div>
+                <br>
+            
+        </div>
+        
+    </div>
+    
+    <!-- Rolagem para o topo-->
+    <a class="scroll-to-top rounded" href="#content-wrapper">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+                <span>Copyright &copy; Your Website 2019</span>
+            </div>
+        </div>
+    </footer>
+
+</div>

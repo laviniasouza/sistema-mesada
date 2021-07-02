@@ -1,0 +1,69 @@
+{{>_menulateral_dependente}} 
+
+<div id="content-wrapper" class="d-flex flex-column">
+
+    <div id="content">
+
+        {{>_navbar_dependente}}
+ 
+        {{#each erros}}
+            <div class="alert alert-danger">
+                {{texto}}
+            </div>
+        {{else}}
+        {{/each}}
+
+        <div class="container-fluid">
+ 
+            <div class="card-header py-3">
+                <h4 class="m-0 font-weight-bold text-primary">Mudar o seu pedido pro papai:</h4>
+            </div>
+
+            <!-- Formulário -->
+            <form action="/solicitacoes_filho/editarsolicitacao" method="POST">
+                {{#each solicitacao}}
+
+                    <br>
+                <input type="hidden" name="id" value="{{id}}">
+                <label for="valor" class="mb-2 text-gray-900">De quanto dinheiro você precisa?</label>
+                    <input type="text" id="valor" name="valor" placeholder="0,00" class="form-control" value="{{valor}}" required>
+                    <br>
+                <label for="data_necessidade" class="mb-2 text-gray-900">Qual dia você vai usar o dinheiro?</label>
+                    <input type="date" id="data_necessidade" name="data_necessidade" class="form-control" value="{{data_necessidade}}" required>
+                    <br>
+                <label for="descricao" class="mb-2 text-gray-900">Pra que você precisa desse dinheiro?</label>
+                    <input type="text" id="descricao" name="descricao" placeholder="Descricao" class="form-control" value="{{descricao}}" required>
+                    <br>
+                    
+                {{/each}}
+
+                <button type="submit" class="btn btn-success">Mudar Pedido</button>
+            </form>
+
+        </div>
+
+    </div>
+
+    <!-- Rolagem para o topo-->
+    <a class="scroll-to-top rounded" href="#content-wrapper">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+                <span>Copyright &copy; Your Website 2019</span>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<!-- Configurações dos campos -->
+
+<script type="text/javascript">
+
+    $(document).ready(function() {        
+        $("#valor").mask("R$ 999.990,00", {reverse: true})
+    });
+
+</script>

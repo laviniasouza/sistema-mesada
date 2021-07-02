@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+        <i class="fa fa-bars"></i>
+    </button>
+ 
+    <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+        <div class="input-group">
+            {{#each usuario}}
+            <div class="input-group-append">Olá, {{nome}}!</div>
+            {{/each}}
+        </div>
+    </form>
+  
+    <li class="nav-item dropdown no-arrow mx-1">
+        <a class="txt2" href="/usuarios/admin">
+			Minha Conta
+		</a>
+    </li>
+
+    <!-- Divisor -->
+    <div class="topbar-divider d-none d-sm-block"></div>
+    
+    <a href="/usuarios/logout" onclick="return confirm('Deseja realmente sair?')" class="btn btn-danger btn-icon-split">
+        <span class="icon text-white-50">
+            <i class="fas fa-arrow-right"></i>
+        </span>
+        <span class="text">Sair</span>
+    </a>
+        
+    </ul>
+</nav>

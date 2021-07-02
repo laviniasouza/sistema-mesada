@@ -1,0 +1,81 @@
+{{>_menulateral_responsavel}}  
+
+<div id="content-wrapper" class="d-flex flex-column">
+    
+    <div id="content">
+
+        {{>_navbar_responsavel}}
+        
+        {{>_msg}}
+ 
+        <div class="container-fluid">
+
+            <div class="card-header py-3">
+                <h4 class="m-0 font-weight-bold text-primary">Categorias</h4>
+            </div>
+
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <a href="/categorias/addcategoria_responsavel" class="btn btn-success btn-icon-split">
+                        <span class="icon text-white-50">
+                        <i>+</i>
+                        </span>
+                        <span class="text">Nova</span>
+                    </a>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Descrição</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <!--<tfoot>
+                                <tr>
+                                    <th>Descrição</th>
+                                    <th>Valor Máximo Mensal</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </tfoot>-->
+                            <tbody>
+                                {{#each categoria}}
+                                <tr>
+                                    <td>{{descricao}}</td>
+
+                                    <td>
+                                        <a href="/categorias/editarcategoria_responsavel/{{id}}"><button class="btn btn-success"><i class="fas fa-edit"></i></button></a>
+                                    </td>
+                                    <td>
+                                        <form method="POST" onsubmit="return confirm('Deseja realmente excluir?'); return false" action="/categorias/deletarcategoria_responsavel">
+                                            <input type="hidden" name="id" value="{{id}}">
+                                            <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                {{/each}}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Rolagem para o topo-->
+    <a class="scroll-to-top rounded" href="#content-wrapper">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+                <span>Copyright &copy; Your Website 2019</span>
+            </div>
+        </div>
+    </footer>
+
+</div>

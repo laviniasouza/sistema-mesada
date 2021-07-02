@@ -1,0 +1,59 @@
+{{>_menulateral_admin}} 
+
+<div id="content-wrapper" class="d-flex flex-column">
+
+    <div id="content">
+
+        {{>_navbar_admin}}
+
+        {{#each erros}}
+            <div class="alert alert-danger">
+                {{texto}}
+            </div>
+        {{else}}
+        {{/each}}
+
+        {{>_msg}}
+
+        <div class="container-fluid">
+
+            <div class="card-header py-3">
+                <h4 class="m-0 font-weight-bold text-primary">Novo Dependente:</h4>
+            </div>
+
+            <!-- Formulário -->
+            <form action="/usuarios/novodependente" method="POST">
+                    <br>
+                <label for="nome" class="mb-2 text-gray-900">Nome:</label>
+                    <input type="text" id="nome" name="nome" placeholder="Nome" class="form-control" required>
+                    <br>
+                <label for="email" class="mb-2 text-gray-900">Email:</label>
+                    <input type="text" id="email" name="email" placeholder="Email" class="form-control" required>
+                    <br>
+                <label for="senha" class="mb-2 text-gray-900">Senha:</label>
+                    <input type="password" name="senha" class="form-control" required>
+                    <br>
+                <label for="senha2" class="mb-2 text-gray-900">Repita a senha:</label>
+                    <input type="password" name="senha2" class="form-control" required>
+                <br><br>
+
+                <button type="submit" class="btn btn-success">Criar dependente</button>
+            </form>
+
+        </div>
+
+    </div>
+
+    <!-- Rolagem para o topo-->
+    <a class="scroll-to-top rounded" href="#content-wrapper">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+                <span>Copyright &copy; Your Website 2019</span>
+            </div>
+        </div>
+    </footer>
+</div>

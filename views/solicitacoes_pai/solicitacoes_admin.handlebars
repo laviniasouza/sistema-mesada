@@ -1,0 +1,84 @@
+{{>_menulateral_admin}}  
+
+<div id="content-wrapper" class="d-flex flex-column">
+    
+    <div id="content">
+
+        {{>_navbar_admin}}
+        
+        {{>_msg}}
+
+        <div class="container-fluid">
+
+            <div class="card-header py-3">
+                <h4 class="m-0 font-weight-bold text-primary">Solicitações de verba</h4>
+            </div>
+ 
+            <div class="card shadow mb-4">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+
+                            <thead>
+                                <tr>
+                                    <th>Data Solicitação</th>
+                                    <th>Data Necessidade</th>
+                                    <th>Filho/Dependente</th>
+                                    <th>Descrição</th>
+                                    <th>Situação</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <!--<tfoot>
+                                <tr>
+                                    <th>Data Solicitação</th>
+                                    <th>Data Necessidade</th>
+                                    <th>Filho/Dependente</th>
+                                    <th>Descrição</th>
+                                    <th>Situação</th>
+                                    <th></th>
+                                </tr>
+                            </tfoot>-->
+                            <tbody>
+                                {{#each solicitacoes}}
+                                <tr>
+                                    <td class="data date-{{id}}">
+                                        <script>
+                                            document.querySelector('.date-{{id}}').innerHTML = new Date('{{data_emissao}}').toLocaleDateString('pt-BR');
+                                        </script>
+                                    </td>
+                                    <td class="data date2-{{id}}">
+                                        <script>
+                                            document.querySelector('.date2-{{id}}').innerHTML = new Date('{{data_necessidade}}').toLocaleDateString('pt-BR');
+                                        </script>
+                                    </td>
+                                    <td>{{nome_filho}}</td>
+                                    <td>{{descricao_conta}}</td>
+                                    <td>{{situacao}}{{avaliacao}}</td>
+
+                                    <td>
+                                        <a href="/solicitacoes_pai/visualizarsolicitacao_admin/{{id}}"><button class="btn btn-success"><i class="fas fa-eye"></i></button></a>
+                                    </td>
+                                </tr>
+                                {{/each}}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Rolagem para o topo-->
+        <a class="scroll-to-top rounded" href="#content-wrapper">
+            <i class="fas fa-angle-up"></i>
+        </a>
+
+        <footer class="sticky-footer bg-white">
+            <div class="container my-auto">
+                <div class="copyright text-center my-auto">
+                    <span>Copyright &copy; Your Website 2019</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>

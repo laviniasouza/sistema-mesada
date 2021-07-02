@@ -1,0 +1,96 @@
+{{>_menulateral_admin}}  
+
+<div id="content-wrapper" class="d-flex flex-column">
+    
+    <div id="content">
+
+        {{>_navbar_admin}}
+        
+        {{>_msg}}
+
+        <div class="container-fluid">
+
+            {{#each solicitacoes}}
+            
+            <div class="card-header py-3">
+                <h4 class="m-0 font-weight-bold text-primary">Solicitação Nº {{id}}</h4>
+            </div>
+
+            <div class="card shadow mb-2"></div>
+                    
+                <br>
+            <label class="mb-2 text-gray-900 font-weight-bold">Data Solicitação:</label>                
+            <label class="mb-2 text-gray-900 data date-{{id}}">
+                <script>
+                    document.querySelector('.date-{{id}}').innerHTML = new Date('{{data}}').toLocaleDateString()
+                </script>
+            </label>
+                <br><br>
+
+            <label class="mb-2 text-gray-900 font-weight-bold">Data Necessidade:</label>                
+            <label class="mb-2 text-gray-900 data date2-{{id}}">
+                <script>
+                    document.querySelector('.date2-{{id}}').innerHTML = new Date('{{data_necessidade}}').toLocaleDateString()
+                </script>
+            </label>
+                <br><br>
+
+            <label class="mb-2 text-gray-900 font-weight-bold">Filho / Dependente:</label>                
+            <label class="mb-2 text-gray-900">{{nome_filho}}</label>
+                <br><br>
+
+            <label class="mb-2 text-gray-900 font-weight-bold">Valor:</label>                
+            <label class="mb-2 text-gray-900 valor">
+                <script>
+                    document.querySelector('.valor').innerHTML = 'R$ ' + '{{valor}}'.toLocaleString('pt-BR', {style:'currency', currency:'BRL'})
+                </script>
+            </label>
+                <br><br>
+
+            <label class="mb-2 text-gray-900 font-weight-bold">Descricao:</label>                
+            <label class="mb-2 text-gray-900">{{descricao_conta}}</label>
+                <br><br>
+
+            <label class="m-0 font-weight-bold text-primary">Situação:</label>                
+            <label class="m-0 font-weight-bold text-primary">{{situacao}}{{avaliacao}}</label>
+                <br><br>
+
+            <label class="m-0 font-weight-bold text-primary">Justificativa / Observação:</label>                
+            <label class="m-0 font-weight-bold text-primary">{{justificativa}} - {{observacao}}</label>
+                <br><br>
+
+            <a href="/solicitacoes_pai/aprovarsolicitacao_admin/{{id}}" class="btn btn-success btn-icon-split">
+                <span class="icon text-white-50">
+                    <i class="fas fa-check"></i>
+                </span>
+                <span class="text">Aprovar</span>
+            </a>
+
+            <label></label>
+                 
+            <a href="/solicitacoes_pai/recusarsolicitacao_admin/{{id}}" class="btn btn-secondary btn-icon-split">
+                <span class="icon text-white-50">
+                    <i class="fas fa-times"></i>
+                </span>
+                <span class="text">Não aprovar</span>
+            </a>
+
+            {{/each}}
+        </div>
+        
+    </div>
+    
+    <!-- Rolagem para o topo-->
+    <a class="scroll-to-top rounded" href="#content-wrapper">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+                <span>Copyright &copy; Your Website 2019</span>
+            </div>
+        </div>
+    </footer>
+
+</div>

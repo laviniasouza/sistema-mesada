@@ -1,0 +1,66 @@
+{{>_menulateral_responsavel}} 
+
+<div id="content-wrapper" class="d-flex flex-column">
+
+    <div id="content">
+
+        {{>_navbar_responsavel}}
+
+        {{#each erros}}
+            <div class="alert alert-danger">
+                {{texto}}
+            </div>
+        {{else}}
+        {{/each}}
+
+        {{>_msg}}
+
+        <div class="container-fluid">
+
+            <div class="card-header py-3">
+                <h4 class="m-0 font-weight-bold text-primary">Aprovar solicitação:</h4>
+            </div>
+
+            <!-- Formulário -->
+            <form action="/solicitacoes_pai/aprovarsolicitacao_responsavel" method="POST">
+
+                {{#each solicitacao}}
+                <input type="hidden" name="id" value="{{id}}">
+                {{/each}}
+
+                    <br>
+                <label for="categoria" class="mb-2 text-gray-900">Categoria:</label>
+                <select name="id_categoria" class="custom-select">
+                {{#each categorias}}
+                    <option value="{{id_categoria}}">{{nome_categoria}}</option>
+                {{/each}}
+                </select>
+
+                    <br><br>
+                <label for="justificativa" class="mb-2 text-gray-900">Justificativa:</label>
+                    <input type="text" id="justificativa" name="justificativa" placeholder="Justificativa" class="form-control" required>
+                    <br>
+                <label for="observacao" class="mb-2 text-gray-900">Observação:</label>
+                    <input type="text" id="observacao" name="observacao" placeholder="Observação" class="form-control">
+                    <br>
+
+                <button type="submit" class="btn btn-success">Aprovar</button>
+            </form>
+
+        </div>
+
+    </div>
+
+    <!-- Rolagem para o topo-->
+    <a class="scroll-to-top rounded" href="#content-wrapper">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+                <span>Copyright &copy; Your Website 2019</span>
+            </div>
+        </div>
+    </footer>
+</div>

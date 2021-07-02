@@ -1,0 +1,58 @@
+<div id="content-wrapper" class="d-flex flex-column">
+
+	<div class="container-login100">
+
+		<div class="wrap-login100 ">
+
+			{{>_msg}}
+
+			<!-- error, variável global de erro na autenticação -->
+			{{#if error}}
+				<div class="alert alert-danger">{{error}}</div>
+			{{else}}
+
+			{{/if}}
+			<!-- Partial msg (O > define que é uma partial)-->					
+
+			<form class="login100-form" action="/usuarios/login" method="post">
+
+				<h5 class="m-0 font-weight-bold text-primary text-center">
+					<i class="sidebar-brand-icon rotate-n-15 fas fa-hand-holding-usd"></i>
+					MESADINHA
+				</h5>
+				<br>
+			
+				<h6 class="m-0 font-weight-bold text-primary text-center">LOGIN</h6>						
+				<br>
+
+				<label for="email" class="mb-2 text-gray-900">Email: </label>
+					<input type="text" class="form-control" name="email" placeholder="Email" required>
+					<br>
+				<label for="senha" class="mb-2 text-gray-900">Senha: </label>
+					<input type="password" class="form-control" name="senha" placeholder="Senha" required><br>
+
+				<div class="text-center">
+					<button class="btn btn-success" type="submit">Entrar</button>
+				</div>
+					<br> 
+				<div class="text-center p-t-12">
+					<a class="txt2" href="/usuarios/addadmin">
+						Não possui acesso? Cadastre-se
+					</a>
+					<br>
+					<a class="txt2" href="/usuarios/esqueceu_senha">
+						Esqueceu Usuário / Senha?
+					</a>
+				</div>
+
+			</form>
+
+		</div>
+	</div>
+	
+    <!-- Rolagem para o topo-->
+    <a class="scroll-to-top rounded" href="#content-wrapper">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+</div>
